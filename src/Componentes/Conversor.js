@@ -14,11 +14,12 @@ const Conversor = props => {
                         <Formulario></Formulario>
                     </div>
                     <div className="card-footer text-light bg-dark">
-                        { props.conversor.quotes && props.conversor.quotes[Object.keys(props.conversor.quotes)[0]] }
+                        {
+                            isNaN(props.conversor) ? '0,00' : parseFloat(props.conversor).toFixed(2)
+                        }
                     </div>
                 </div>
             </div>
-            
         </div>
     )
 }

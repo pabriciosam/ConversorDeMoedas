@@ -11,9 +11,13 @@ export function ConverteMoedas(converte) {
     
     const request = axios.get(url)
 
+    var valorConvertido = request.then((dados) => {
+        return dados.data.quotes[Object.keys(dados.data.quotes)[0]] * converte.valor
+    })
+
     //Recebe o valor convertido
     return {
         type: CONVERTE_MOEDAS,
-        payload: request
+        payload: valorConvertido
     }
 }
